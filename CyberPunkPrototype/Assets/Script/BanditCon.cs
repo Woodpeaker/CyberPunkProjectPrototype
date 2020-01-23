@@ -20,7 +20,6 @@ public class BanditCon : MonoBehaviour
             GetComponent<Transform>().position = new Vector2(-3.33f,-1.6f);
             GetComponent<Animator>().SetTrigger("Bandit_Melee");
         }
-        
 
     }
 

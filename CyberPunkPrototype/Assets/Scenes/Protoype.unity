@@ -313,11 +313,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 709913343}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f489f3bd91cfa064db7e7affd9b9ac17, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ed2bb23ee8e637479075de37b7daba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyBallObj: {fileID: 2130615094733540665, guid: 4470a2e087ea70349aa07135bd9be090,
-    type: 3}
 --- !u!1 &878449452
 GameObject:
   m_ObjectHideFlags: 0
@@ -2732,6 +2730,7 @@ GameObject:
   - component: {fileID: 1139138565}
   - component: {fileID: 1139138564}
   - component: {fileID: 1139138563}
+  - component: {fileID: 1139138566}
   m_Layer: 0
   m_Name: Girl 1
   m_TagString: Untagged
@@ -2821,6 +2820,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1139138566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139138562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f489f3bd91cfa064db7e7affd9b9ac17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBallObj: {fileID: 2130615094733540665, guid: 4470a2e087ea70349aa07135bd9be090,
+    type: 3}
 --- !u!1 &1607403437
 GameObject:
   m_ObjectHideFlags: 0
