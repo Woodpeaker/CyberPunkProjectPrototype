@@ -16,12 +16,11 @@ public class BanditAllyCon : MonoBehaviour
 
         if (Input.GetKeyDown("2"))
         {
-
             GetComponent<Transform>().position = new Vector2(-3.33f, -1.6f);
             GetComponent<Animator>().SetTrigger("BanditAllyRange");
         }
     }
-    void IniPosition()
+    void IniPositionAlly()
     {
         GetComponent<Transform>().position = new Vector2(5.66f, -2.39f);
     }

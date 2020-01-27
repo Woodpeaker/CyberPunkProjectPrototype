@@ -13,14 +13,11 @@ public class BanditCon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKeyDown("1"))
         {
-
             GetComponent<Transform>().position = new Vector2(-3.33f,-1.6f);
             GetComponent<Animator>().SetTrigger("Bandit_Melee");
         }
-
     }
 
     void IniPosition()
