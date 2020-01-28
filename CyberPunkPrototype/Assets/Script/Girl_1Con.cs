@@ -17,7 +17,7 @@ public class Girl_1Con : MonoBehaviour
     {
         if (Input.GetKeyDown("3"))
         {
-            Instantiate(energyBallObj, new Vector2(-3f, -0.25f), energyBallObj.rotation);
+            Instantiate(energyBallObj, new Vector2(-3.3f, -0.25f), energyBallObj.rotation);
             StartCoroutine(IniPosition());
         }
     }

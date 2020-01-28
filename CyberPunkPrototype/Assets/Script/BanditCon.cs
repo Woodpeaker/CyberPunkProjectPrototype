@@ -15,13 +15,20 @@ public class BanditCon : MonoBehaviour
     {
         if (Input.GetKeyDown("1"))
         {
-            GetComponent<Transform>().position = new Vector2(-3.33f,-1.6f);
-            GetComponent<Animator>().SetTrigger("Bandit_Melee");
+            GetComponent<Rigidbody>().velocity = new Vector2(-5, 0);
+            GetComponent<Animator>().SetTrigger("Bandit_Run");
+            //GetComponent<Transform>().position = new Vector2(-3.33f,-1.6f);
+            StartCoroutine(IniPosition());
+            
         }
     }
 
-    void IniPosition()
+    IEnumerator IniPosition()
     {
+        //yield return new WaitForSeconds(1.5f);
+        GetComponent<Animator>().SetTrigger("Bandit_Melee");
+        GetComponent<Rigidbody>().velocity = new Vector2(0, 0);
+        yield return new WaitForSeconds(1);
         GetComponent<Transform>().position = new Vector2(4.4f, -0.97f);
     }
 }
