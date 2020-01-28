@@ -25,10 +25,11 @@ public class BanditCon : MonoBehaviour
 
     IEnumerator IniPosition()
     {
-        //yield return new WaitForSeconds(1.5f);
-        GetComponent<Animator>().SetTrigger("Bandit_Melee");
+        yield return new WaitForSeconds(1.5f);
+        GetComponent<Animator>().SetTrigger("Bandit_Run_Melee");
         GetComponent<Rigidbody>().velocity = new Vector2(0, 0);
         yield return new WaitForSeconds(1);
+        GetComponent<Animator>().SetTrigger("Bandit_Melee_Idle");
         GetComponent<Transform>().position = new Vector2(4.4f, -0.97f);
     }
 }
