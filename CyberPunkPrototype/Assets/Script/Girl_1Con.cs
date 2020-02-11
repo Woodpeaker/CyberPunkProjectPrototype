@@ -6,8 +6,10 @@ public class Girl_1Con : MonoBehaviour
 {
     public Transform energyBallObj;
     public Transform damTextObj;
-    public float girlHP = 20;
-    public float girlMaxHP = 20;
+    public Transform hitEffectObj;
+    public float girlHP = 50;
+    public float girlMaxHP = 50;
+    public float attackPower = 20;
     
     // Start is called before the first frame update
     void Start()
@@ -20,26 +22,29 @@ public class Girl_1Con : MonoBehaviour
     {
         if (BattleFlow.banditTurn == 3)
         {
-            BattleFlow.target = 1;
-            BattleFlow.currDamage = 20;
-            Instantiate(energyBallObj, new Vector2(4.5f, -0.2f), energyBallObj.rotation);
             StartCoroutine(IniPosition());
             BattleFlow.banditTurn = 1;
         }
-        if (BattleFlow.damageDisplay == "Y" && (BattleFlow.target == 3))
+        if (BattleFlow.damageDisplay == "Y" && (BanditCon.target == 1))
         {
             girlHP -= BattleFlow.currDamage;
-            Debug.Log(girlHP);
+            Debug.Log("Girl HP: "+girlHP);
             BattleFlow.damageDisplay = "N";
         }
         if (girlHP <= 0)
+        {
+            BattleFlow.girlStatus = "DEAD";
             Destroy(gameObject);
+        }
     }
     IEnumerator IniPosition()
     {
+        Instantiate(energyBallObj, new Vector2(4.5f, -0.2f), energyBallObj.rotation);
         yield return new WaitForSeconds(0.9f);
+        Instantiate(hitEffectObj, new Vector2(-3.46f, -0.2f),hitEffectObj.rotation);
         Instantiate(damTextObj, new Vector2(-3.46f, -1.03f), damTextObj.rotation);
-        BattleFlow.damageDisplay = "Y";
+        BanditCon.banditHP -= attackPower;
+        Debug.Log("Bandit HP: " + BanditCon.banditHP);
         yield return new WaitForSeconds(1);
         GetComponent<Transform>().position = new Vector2(4.58f, -0.2f);
     }
