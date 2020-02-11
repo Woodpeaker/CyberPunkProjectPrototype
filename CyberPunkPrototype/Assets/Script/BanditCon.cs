@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BanditCon : MonoBehaviour
 {
-    public float banditHP = 50;
-    public float banditMaxHP = 50;
+    public float banditHP = 100;
+    public float banditMaxHP = 100;
     public Transform damTextObj;
     // Start is called before the first frame update
     void Start()
@@ -18,12 +18,21 @@ public class BanditCon : MonoBehaviour
     {
         if (Input.GetKeyDown("1")&&(BattleFlow.banditTurn==1))
         {
-            GetComponent<Rigidbody>().velocity = new Vector2(-5, -0.3f);
+            BattleFlow.target = 3;
+            GetComponent<Rigidbody>().velocity = new Vector2(5, 0);
             GetComponent<Animator>().SetTrigger("Bandit_Run");
-            BattleFlow.currDamage = 30;
+            BattleFlow.currDamage = 10;
             StartCoroutine(IniPosition());
             BattleFlow.banditTurn = 2;
         }
+        if (BattleFlow.damageDisplay == "Y" && (BattleFlow.target == 1))
+        {
+            banditHP -= BattleFlow.currDamage;
+            Debug.Log(banditHP);
+            BattleFlow.damageDisplay = "N";
+        }
+        if (banditHP <= 0)
+            Destroy(gameObject);
     }
 
     IEnumerator IniPosition()
@@ -32,9 +41,10 @@ public class BanditCon : MonoBehaviour
         GetComponent<Animator>().SetTrigger("Bandit_Run_Melee");
         GetComponent<Rigidbody>().velocity = new Vector2(0, 0);
         yield return new WaitForSeconds(0.3f);
-        Instantiate(damTextObj, new Vector2(-4.28f, -0.74f), damTextObj.rotation);
+        Instantiate(damTextObj, new Vector2(4.58f, -0.2f), damTextObj.rotation);
+        BattleFlow.damageDisplay = "Y";
         yield return new WaitForSeconds(0.7f);
         GetComponent<Animator>().SetTrigger("Bandit_Melee_Idle");
-        GetComponent<Transform>().position = new Vector2(4.4f, -0.97f);
+        GetComponent<Transform>().position = new Vector2(-3.56f, -1.03f);
     }
 }

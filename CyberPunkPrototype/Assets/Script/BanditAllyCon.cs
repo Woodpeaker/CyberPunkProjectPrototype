@@ -19,10 +19,12 @@ public class BanditAllyCon : MonoBehaviour
 
         if (Input.GetKeyDown("1") && (BattleFlow.banditTurn == 2))
         {
-            GetComponent<Transform>().position = new Vector2(-3.33f, -1.6f);
+            BattleFlow.target = 1;
+            GetComponent<Transform>().position = new Vector2(-3.10f, -1.03f);
             GetComponent<Animator>().SetTrigger("BanditAllyRange");
-            Instantiate(damTextObj, new Vector2(-4.28f, -0.74f), damTextObj.rotation);
-            BattleFlow.currDamage = 30;
+            Instantiate(damTextObj, new Vector2(-3.56f, -1.03f), damTextObj.rotation);
+            BattleFlow.damageDisplay = "Y";
+            BattleFlow.currDamage = 10;
         }
     }
     void IniPositionAlly()
