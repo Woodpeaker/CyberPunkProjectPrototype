@@ -2884,7 +2884,7 @@ MonoBehaviour:
     type: 3}
   damTextObj: {fileID: 7730452235440332115, guid: ccf2f739f524eb343aa452b1f28379dc,
     type: 3}
-  hitEffectObj: {fileID: 7616490144130717800, guid: be64a9a88b7fb0d4684716335061206c,
+  hitEffectObj: {fileID: 1432437628559397792, guid: be64a9a88b7fb0d4684716335061206c,
     type: 3}
   girlHP: 50
   girlMaxHP: 50
