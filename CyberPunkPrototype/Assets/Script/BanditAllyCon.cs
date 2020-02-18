@@ -72,10 +72,6 @@ public class BanditAllyCon : MonoBehaviour
         else if(gameObject.name=="Bandit Ally 2")
             GetComponent<Transform>().position = new Vector2(5.48f, 1f);
     }
-    public void attackEnabled()
-    {
-        Debug.Log("CLICKED");
-    }
     void OnMouseDown()
     {
         BattleFlow.selectedEnemy = gameObject.name;
