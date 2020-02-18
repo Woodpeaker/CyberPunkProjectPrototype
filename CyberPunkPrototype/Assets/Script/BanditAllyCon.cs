@@ -22,15 +22,11 @@ public class BanditAllyCon : MonoBehaviour
         if ((BattleFlow.banditTurn == 2)&&(gameObject.name=="Bandit Ally"))
         {
             StartCoroutine(IniPosition());
-            BanditCon.banditHP -= attackPower;
-            Debug.Log("Bandit HP: "+BanditCon.banditHP);
             BattleFlow.banditTurn = 3;
         }
         if ((BattleFlow.banditTurn == 3) && (gameObject.name == "Bandit Ally 2"))
         {
             StartCoroutine(IniPosition());
-            BanditCon.banditHP -= attackPower;
-            Debug.Log("Bandit HP: " + BanditCon.banditHP);
             BattleFlow.banditTurn = 4;
         }
         if (BattleFlow.damageDisplay == "Y" && (BattleFlow.selectedEnemy == gameObject.name))
@@ -56,18 +52,29 @@ public class BanditAllyCon : MonoBehaviour
     }
     IEnumerator IniPosition()
     {
-        if(gameObject.name=="Bandit Ally")
+        if (gameObject.name == "Bandit Ally")
             yield return new WaitForSeconds(1);
-        else if (gameObject.name=="Bandit Ally 2")
-            yield return new WaitForSeconds(3);
+        else if (gameObject.name == "Bandit Ally 2")
+        {
+            if (BattleFlow.banditAllyStatus == "DEAD")
+                yield return new WaitForSeconds(1);
+            else
+                yield return new WaitForSeconds(3);
+        }
         GetComponent<Transform>().position = new Vector2(-3.10f, -1.03f);
         GetComponent<Animator>().SetTrigger("BanditAllyRange");
         yield return new WaitForSeconds(1);
         Instantiate(damTextObj, new Vector2(-3.56f, -1.03f), damTextObj.rotation);
+        BanditCon.banditHP -= attackPower;
+        Debug.Log("Bandit HP: " + BanditCon.banditHP);
         if (gameObject.name=="Bandit Ally")
             GetComponent<Transform>().position = new Vector2(5.66f, -2.39f);
         else if(gameObject.name=="Bandit Ally 2")
             GetComponent<Transform>().position = new Vector2(5.48f, 1f);
+    }
+    public void attackEnabled()
+    {
+        Debug.Log("CLICKED");
     }
     void OnMouseDown()
     {

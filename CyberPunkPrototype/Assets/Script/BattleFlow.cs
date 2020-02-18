@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleFlow : MonoBehaviour
 {
@@ -13,15 +14,29 @@ public class BattleFlow : MonoBehaviour
     public static string banditAlly2Status = "OK";
     public static string selectedEnemy = "";
     public static int banditTotalEXP = 0;
+    public static string attackStatus = "none";
+
+    public Transform healthBar;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        healthBar.GetComponent<Image>().color = new Color(0,1,0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (BanditCon.banditHP< BanditCon.banditMaxHP)
+        {
+            healthBar.GetComponent<Image>().color = new Color(1, 1, 0);
+        }
+        if (BanditCon.banditHP < (BanditCon.banditMaxHP/2))
+        {
+            healthBar.GetComponent<Image>().color = new Color(1,0, 0);
+        }
+        healthBar.GetComponent<RectTransform>().localScale = new Vector2(BanditCon.banditHP/ BanditCon.banditMaxHP,1);
+
         if ((girlStatus == "DEAD")&&(banditTurn==4))
         {
             banditTurn = 1;
@@ -34,5 +49,9 @@ public class BattleFlow : MonoBehaviour
         {
             banditTurn = 4;
         }
+    }
+    public void attackEnabled()
+    {
+        attackStatus = "Player Attack";
     }
 }

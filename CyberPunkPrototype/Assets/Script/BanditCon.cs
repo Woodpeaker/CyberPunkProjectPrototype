@@ -18,8 +18,16 @@ public class BanditCon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("1")&&(BattleFlow.banditTurn==1))
+        if ((BattleFlow.attackStatus=="Player Attack")&&(BattleFlow.banditTurn==1))
         {
+            BattleFlow.attackStatus = "none";
+            BattleFlow.selectedEnemy = "Girl 1";
+            if (BattleFlow.girlStatus == "DEAD")
+            {
+                BattleFlow.selectedEnemy = "Bandit Ally";
+                if (BattleFlow.banditAllyStatus == "DEAD")
+                    BattleFlow.selectedEnemy = "Bandit Ally 2";
+            }
             
             if ((BattleFlow.selectedEnemy == "Girl 1"))
                 GetComponent<Rigidbody>().velocity = new Vector2(5, 0);
