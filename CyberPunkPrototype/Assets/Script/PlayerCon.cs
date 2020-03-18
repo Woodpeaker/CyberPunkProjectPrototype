@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCon : MonoBehaviour
 {
 
-    public float speed = 18;
+    public float speed = 10f;
     private Rigidbody rig;
 
 
