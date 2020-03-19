@@ -23,6 +23,14 @@ public class PlayerCon : MonoBehaviour
         float vAxis = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(hAxis,vAxis, 0) * speed * Time.deltaTime;
         rig.MovePosition(transform.position + movement);
+        if (hAxis > 0)
+        {
+            GetComponent<Transform>().localScale = new Vector3(-4.581f,4.812f,1);
+        }
+        else if (hAxis < 0)
+        {
+            GetComponent<Transform>().localScale = new Vector3(4.581f, 4.812f, 1);
+        }
         if (Mathf.Abs(hAxis) > 0.1 || Mathf.Abs(vAxis) > 0.1 )
         {
             GetComponent<Animator>().SetBool("isPlayerRunning",true);
