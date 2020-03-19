@@ -37,7 +37,6 @@ public class BattleFlow : MonoBehaviour
             healthBar.GetComponent<Image>().color = new Color(1,0, 0);
         }
         healthBar.GetComponent<RectTransform>().localScale = new Vector2(BanditCon.banditHP/ BanditCon.banditMaxHP,1);
-
         if ((girlStatus == "DEAD")&&(banditTurn==4))
         {
             banditTurn = 1;
