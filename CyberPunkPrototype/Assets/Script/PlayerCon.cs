@@ -23,13 +23,13 @@ public class PlayerCon : MonoBehaviour
         float vAxis = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(hAxis,vAxis, 0) * speed * Time.deltaTime;
         rig.MovePosition(transform.position + movement);
-        if (hAxis !=0 || vAxis !=0 )
+        if (Mathf.Abs(hAxis) > 0.1 || Mathf.Abs(vAxis) > 0.1 )
         {
-            GetComponent<Animator>().SetTrigger("Player_Running");
+            GetComponent<Animator>().SetBool("isPlayerRunning",true);
         }
         else
         {
-            GetComponent<Animator>().SetTrigger("Player_Stand");
+            GetComponent<Animator>().SetBool("isPlayerRunning", false);
         }
     }
 }
