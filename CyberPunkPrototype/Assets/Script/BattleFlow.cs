@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BattleFlow : MonoBehaviour
 {
@@ -48,6 +49,10 @@ public class BattleFlow : MonoBehaviour
         if ((banditAlly2Status == "DEAD") && (banditTurn == 3))
         {
             banditTurn = 4;
+        }
+        if ((banditAlly2Status == "DEAD")&& (banditAllyStatus == "DEAD")&& (girlStatus == "DEAD"))
+        {
+            SceneManager.LoadScene(sceneName: "World Prototype");
         }
     }
     public void attackEnabled()
