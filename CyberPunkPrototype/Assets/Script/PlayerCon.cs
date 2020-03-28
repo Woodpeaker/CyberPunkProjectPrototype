@@ -23,6 +23,13 @@ public class PlayerCon : MonoBehaviour
         float vAxis = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(hAxis,vAxis, 0) * speed * Time.deltaTime;
         rig.MovePosition(transform.position + movement);
+        if (GameFlow.inBattle)
+        {
+            gameObject.SetActive(false);
+        }
+        else {
+            gameObject.SetActive(true);
+        }
         if (hAxis > 0)
         {
             GetComponent<Transform>().localScale = new Vector3(-4.581f,4.812f,1);
