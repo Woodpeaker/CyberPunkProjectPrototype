@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class BanditExploreCon : MonoBehaviour
 {
+    public Transform Player;
+    public float speed = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +17,22 @@ public class BanditExploreCon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //transform.LookAt(Player);
+
+        Vector3 displacement = Player.position - transform.position;
+        displacement = displacement.normalized;
+        if (Vector2.Distance(Player.position, transform.position) > 1.0f)
+        {
+            transform.position += (displacement * speed * Time.deltaTime);
+        }
+        if (displacement.magnitude > 0)
+        {
+            GetComponent<Animator>().SetBool("isBanditRunning", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("isBanditRunning", false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
