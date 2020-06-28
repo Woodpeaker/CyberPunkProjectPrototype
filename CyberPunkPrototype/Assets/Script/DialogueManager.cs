@@ -9,11 +9,13 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText;
     public Animator animator;
     private GameObject player;
+    public static bool isTalking;
     private Queue<string> sentences;
 
     // Start is called before the first frame update
     void Start()
     {
+        isTalking = false;
         sentences = new Queue<string>();
         player = GameObject.Find("Player");
     }
@@ -34,6 +36,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        isTalking = true;
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -54,6 +57,7 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue()
     {
+        isTalking = false;
         animator.SetBool("IsOpen", false);
         player.GetComponent<Rigidbody>().isKinematic = true;
         player.GetComponent<PlayerCon>().speed = 18;

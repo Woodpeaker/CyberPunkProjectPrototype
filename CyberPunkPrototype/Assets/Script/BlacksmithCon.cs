@@ -28,8 +28,12 @@ public class BlacksmithCon : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.F)){
-            TriggerDialogue();
+        if (Input.GetKeyDown(KeyCode.F) && !DialogueManager.isTalking){
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        }
+        else if (Input.anyKeyDown && DialogueManager.isTalking)
+        {
+            FindObjectOfType<DialogueManager>().DisplayNextSentence();
         }
     }
 }
