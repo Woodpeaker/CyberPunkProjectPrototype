@@ -19,6 +19,13 @@ public class BlacksmithCon : MonoBehaviour
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
+    private void OnCollisionEnter(Collision other)
+    { 
+        if (other.gameObject.CompareTag("Player"))
+        {
+            GameObject.Find("Player").GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         if (Input.GetKeyDown(KeyCode.F)){

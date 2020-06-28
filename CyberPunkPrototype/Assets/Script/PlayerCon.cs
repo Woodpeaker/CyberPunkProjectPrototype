@@ -25,7 +25,7 @@ public class PlayerCon : MonoBehaviour
         rig.MovePosition(transform.position + movement);
         if (GameFlow.inBattle)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
         else {
             gameObject.SetActive(true);

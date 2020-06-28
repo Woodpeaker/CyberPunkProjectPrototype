@@ -52,7 +52,12 @@ public class BattleFlow : MonoBehaviour
         if ((banditAlly2Status == "DEAD")&& (banditAllyStatus == "DEAD")&& (girlStatus == "DEAD"))
         {
             GameFlow.inBattle = false;
-            SceneManager.UnloadScene(sceneName: "Battle Prototype");
+            SceneManager.UnloadSceneAsync(sceneName: "Battle Prototype");
+            foreach (GameObject g in WorldFlow.all_World_Objs)
+            {
+                g.SetActive(true);
+            }
+            WorldFlow.Loaded = true;
         }
     }
     public void attackEnabled()
