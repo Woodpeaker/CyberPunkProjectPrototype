@@ -23,6 +23,7 @@ public class BlacksmithCon : MonoBehaviour
     { 
         if (other.gameObject.CompareTag("Player"))
         {
+            GameObject.Find("Player").GetComponent<Rigidbody>().isKinematic = true;
             GameObject.Find("Player").GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
@@ -31,7 +32,7 @@ public class BlacksmithCon : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && !DialogueManager.isTalking){
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         }
-        else if (Input.anyKeyDown && DialogueManager.isTalking)
+        else if (Input.GetKeyDown(KeyCode.Space) && DialogueManager.isTalking)
         {
             FindObjectOfType<DialogueManager>().DisplayNextSentence();
         }

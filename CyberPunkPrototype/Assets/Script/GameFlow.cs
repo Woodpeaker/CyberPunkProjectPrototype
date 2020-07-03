@@ -8,6 +8,7 @@ public class GameFlow : MonoBehaviour
 {
 
     public static bool inBattle = false;
+    public static bool IsInputEnabled = true;
     AsyncOperation Worldscene;
     AsyncOperation Battlescene;
     // Start is called before the first frame update

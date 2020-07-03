@@ -21,7 +21,8 @@ public class DialogueManager : MonoBehaviour
     }
     public void StartDialogue(Dialogue dialogue)
     {
-        player.GetComponent<Rigidbody>().isKinematic = false;
+        GameFlow.IsInputEnabled = false;
+        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         player.GetComponent<PlayerCon>().speed = 0;
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
@@ -57,6 +58,7 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue()
     {
+        GameFlow.IsInputEnabled = true;
         isTalking = false;
         animator.SetBool("IsOpen", false);
         player.GetComponent<Rigidbody>().isKinematic = true;

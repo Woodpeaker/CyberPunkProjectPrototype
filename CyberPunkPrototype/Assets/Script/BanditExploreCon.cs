@@ -73,7 +73,6 @@ public class BanditExploreCon : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameFlow.inBattle = true;
-        //SceneManager.LoadScene(sceneName: "Battle Prototype", LoadSceneMode.Additive);
         Destroy(gameObject);
     }
 }

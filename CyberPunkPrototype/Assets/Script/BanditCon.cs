@@ -12,7 +12,10 @@ public class BanditCon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Selector_EnemyCon.xpos = 4.3471f;
+        //Selector_EnemyCon.ypos = 1.5f;
+        Selector_EnemyCon.minHeight = 1.5f;
+        Selector_EnemyCon.maxHeight = 1.6f;
     }
 
     // Update is called once per frame
@@ -28,13 +31,19 @@ public class BanditCon : MonoBehaviour
                 if (BattleFlow.banditAllyStatus == "DEAD")
                     BattleFlow.selectedEnemy = "Bandit Ally 2";
             }
-            
+
             if ((BattleFlow.selectedEnemy == "Girl 1"))
+            {
                 GetComponent<Rigidbody>().velocity = new Vector2(5, 0);
+            }
             else if ((BattleFlow.selectedEnemy == "Bandit Ally"))
+            {
                 GetComponent<Rigidbody>().velocity = new Vector2(5.5f, -1.2f);
-            else if((BattleFlow.selectedEnemy == "Bandit Ally 2"))
+            }
+            else if ((BattleFlow.selectedEnemy == "Bandit Ally 2"))
+            {
                 GetComponent<Rigidbody>().velocity = new Vector2(5.5f, 1.2f);
+            }
             GetComponent<Animator>().SetTrigger("Bandit_Run");
             BattleFlow.currDamage = 30;
             StartCoroutine(IniPosition());

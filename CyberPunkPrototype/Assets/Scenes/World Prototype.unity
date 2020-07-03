@@ -338,14 +338,14 @@ RectTransform:
   m_GameObject: {fileID: 610953246}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.9409, y: 1.9409, z: 1.9409}
   m_Children: []
   m_Father: {fileID: 1178502618}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4, y: 1}
+  m_AnchoredPosition: {x: -15.2, y: 15.3}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &610953248
@@ -379,7 +379,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press any key to continue...
+  m_Text: Press space >>
 --- !u!222 &610953249
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -789,6 +789,8 @@ MonoBehaviour:
   Player: {fileID: 416880549}
   speed: 5
   sight: 5
+  isFollowing: 0
+  startingPos: {x: 0, y: 0, z: 0}
 --- !u!95 &795816234
 Animator:
   serializedVersion: 3
@@ -936,7 +938,7 @@ MonoBehaviour:
     name: Blacksmith
     sentences:
     - Hello traveller, have you perhaps came to shop, or to upgrade your weapons?
-    - Sadly I did not set up a stop yet, please comeback in a few week.
+    - Sadly I did not set up a shop yet, please comeback in a few week.
     - For now go and play gods.
 --- !u!1 &1178502617
 GameObject:
